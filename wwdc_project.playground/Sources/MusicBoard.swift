@@ -53,7 +53,7 @@ class MusicBoard: SKSpriteNode {
       let baseDiff = 0.5
       let step = self.frame.width/CGFloat(num) - CGFloat(Double(num)*baseDiff)
       
-      var xorigin:CGFloat = -self.frame.width/2 + step/2
+      var xorigin:CGFloat = -self.frame.width/2 + (step/2 + CGFloat(baseDiff))
       print(xorigin)
       print(self.frame.origin)
       print(step)
@@ -63,7 +63,7 @@ class MusicBoard: SKSpriteNode {
         let bt_w:Float = Float(step)
         let bt_h:Float = Float(self.frame.height) - 5
         let buttonTexture: SKTexture! = SKTexture(imageNamed: "white")
-        let buttonTextureSelected: SKTexture! = SKTexture(imageNamed: "white")
+        let buttonTextureSelected: SKTexture! = SKTexture(imageNamed: "Solid_gray")
         let button = FTButtonNode(normalTexture: buttonTexture, selectedTexture: buttonTextureSelected, disabledTexture: buttonTexture, width: bt_w, height: bt_h)
 //        button.setButtonAction(target: self, triggerEvent: .TouchUpInside, action: #selector(buttonTap))
 //        button.setButtonAction(target: self, triggerEvent: .TouchDown, action: #selector(buttonTap))
@@ -80,7 +80,7 @@ class MusicBoard: SKSpriteNode {
         self.addChild(button)
         self.btnSet.append(button)
       
-        xorigin += CGFloat(step) + CGFloat(baseDiff)
+        xorigin += CGFloat(step) + CGFloat(baseDiff) + 2.5
       }
     }
     

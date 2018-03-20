@@ -1,4 +1,7 @@
 import Foundation
+import PlaygroundSupport
+import UIKit
+import SpriteKit
 
 class Utils {
     
@@ -7,9 +10,13 @@ class Utils {
     }
     
     static func random() -> Float {
-        return Float(arc4random())/Float(RAND_MAX)
+        return Float(arc4random()%10000)/Float(10000)
     }
-    
+  
+    static func random(_ min: CGFloat, _ max: CGFloat) -> CGFloat{
+      return min + CGFloat(random())*(max - min)
+    }
+  
     static func random(_ min: Float, _ max: Float) -> Float{
         return min + random()*max
     }
