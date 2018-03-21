@@ -27,13 +27,13 @@ public class PresentationScreen: SKScene {
     node.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
     self.addChild(node)
     
-    let appear = SKAction.sequence([
-      .hide(),
-      .wait(forDuration: 1),
-      .fadeIn(withDuration: 1),
-      .removeFromParent()])
-    
-    node.run(appear)
+//    let appear = SKAction.sequence([
+////      .hide(),
+//      .wait(forDuration: 1),
+//      .fadeIn(withDuration: 1),
+//      .removeFromParent()])
+
+//    node.run(appear)
     
     print("Scene loaded")
   }
@@ -107,3 +107,4 @@ public class PresentationScreen: SKScene {
     addChild(n)
   }
 }
+

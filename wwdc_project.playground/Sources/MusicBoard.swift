@@ -50,7 +50,8 @@ class MusicBoard: SKSpriteNode {
 //        let yorigin = -self.frame.origin.y
 //        var xorigin:CGFloat = self.frame.origin.x/2
       let yorigin:CGFloat = 0
-      let baseDiff = 0.5
+      let baseDiff = 0.35
+//      let step = self.frame.width/CGFloat(num) - CGFloat(Double(num)*baseDiff)
       let step = self.frame.width/CGFloat(num) - CGFloat(Double(num)*baseDiff)
       var bb_num = 1
       
@@ -86,8 +87,8 @@ class MusicBoard: SKSpriteNode {
         ///////////////////////////
         if i%8 == 2 || i%8 == 3 || i%8 == 5 || i%8 == 6 || i%8 == 7 || (i%8 == 0 && i != 1) {
           // Generate the Button nodes
-          let bbt_w:Float = 3*bt_w/4
-          let bbt_h:Float = 3*bt_h/4
+          let bbt_w:Float = 3*bt_w/5
+          let bbt_h:Float = 3*bt_h/5
           let bbt_x:CGFloat = button.frame.origin.x
           let bbt_y:CGFloat = button.frame.maxY - CGFloat(bbt_h)/2
           let bbuttonTexture: SKTexture! = SKTexture(imageNamed: "white")

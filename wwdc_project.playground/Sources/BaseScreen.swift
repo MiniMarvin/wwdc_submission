@@ -39,6 +39,17 @@ public class BaseScreen : UIViewController {
 //        //        let bd_x = self.sceneView.frame.origin.x
 //        let bd_x:CGFloat = 30
 //        board = MusicBoard(x: bd_y, y: bd_x, width: bd_w, height: bd_h, keys: 10)
+      
+        let scene1 = PresentationScreen(size: CGSize(width: 500, height: 500))
+      
+        scene1.scaleMode = .aspectFill
+        self.sceneView.presentScene(scene1)
+        self.sceneView.ignoresSiblingOrder = true
+      
+        self.sceneView.showsFPS = true
+        self.sceneView.showsNodeCount = true
+        sceneView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+      
         self.view = sceneView
     }
     
@@ -51,9 +62,9 @@ public class BaseScreen : UIViewController {
         self.mCircle.layer.backgroundColor = color
     }
     
-    override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-        
+//    override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//
+//
 //        if let touch = touches.first {
 //            let position:CGPoint = touch.location(in: self.view)
 //
@@ -66,11 +77,11 @@ public class BaseScreen : UIViewController {
 //            view?.addSubview(self.mCircle)
 //            self.view = view
 //        }
-      
-        
-    }
-    
-    override public func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+//
+//
+//    }
+//
+//    override public func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
 //        if let touch = touches.first {
 //            let position:CGPoint = touch.location(in: self.view)
 //
@@ -87,21 +98,21 @@ public class BaseScreen : UIViewController {
 //            view?.addSubview(self.mCircle)
 //            self.view = view
 //        }
-    }
+//    }
+  
     
-    
-    override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+//    override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
 //        if let touch = touches.first {
 //            let position:CGPoint = touch.location(in: self.view)
-//            
+//
 //            let x = Int(position.x)
 //            let y = Int(position.y)
-//            
+//
 //            draw_circle(x, y, #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1))
 //            let view = self.view
 //            view?.addSubview(self.mCircle)
 //            self.view = view
 //        }
-    }
+//    }
     
 }
