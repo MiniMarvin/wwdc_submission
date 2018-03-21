@@ -54,9 +54,7 @@ public class GameScene: SKScene {
             // Generate the keyboard node
             let bd_w = Float(self.frame.width)/2
             let bd_h = Float(self.frame.height/10)
-    //        let bd_x = self.frame.origin.x
             let bd_x = self.frame.midX
-    //        let bd_y = self.frame.minY - CGFloat(bd_h)
             let bd_y = self.frame.midY - self.frame.height/2 + CGFloat(bd_h)/2 + 5
           
             // Record the keyboard size for the future
@@ -65,7 +63,7 @@ public class GameScene: SKScene {
             self.board_x = bd_x
             self.board_y = bd_y
           
-            let bt_num = 5
+            let bt_num = 10
             let keybd = MusicBoard(normalTexture: buttonTexture, selectedTexture: buttonTextureSelected, disabledTexture: buttonTexture, width: bd_w, height: bd_h)
             
             keybd.addButtons(bt_num)
@@ -111,16 +109,13 @@ public class GameScene: SKScene {
         
         spinnyNode = SKShapeNode(rectOf: CGSize(width: w, height: w), cornerRadius: w * 0.5)
         spinnyNode.lineWidth = 2.5
-        
-        
+      
         let fadeAndRemove = SKAction.sequence([
             .fadeOut(withDuration: 1),
             .removeFromParent()])
-        
-        
+      
         let grow = SKAction.sequence([.scale(by: CGFloat(3), duration: 1)])
-        
-        
+      
         spinnyNode.run(.repeatForever(.rotate(byAngle: CGFloat(Double.pi), duration: 1)))
         spinnyNode.run(grow)
         spinnyNode.run(fadeAndRemove)
