@@ -10,6 +10,7 @@ import PlaygroundSupport
 public class BaseScreen : UIViewController {
     let mCircle = UIView()
     public var sceneView = SKView()
+    private var debug = 1
 //    var board:MusicBoard = MusicBoard()
     
     
@@ -21,34 +22,27 @@ public class BaseScreen : UIViewController {
         //
         //        self.view = view
         
-        
-        let scene = GameScene(size: CGSize(width: 500, height: 500))
-        scene.scaleMode = .aspectFill
-        self.sceneView.presentScene(scene)
-        self.sceneView.ignoresSiblingOrder = true
-        
-        self.sceneView.showsFPS = true
-        self.sceneView.showsNodeCount = true
-        sceneView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        
-        
-//        let bd_h = CGFloat(100)
-//        let bd_w = self.sceneView.frame.width
-//        //        let bd_y = self.sceneView.frame.maxY - bd_h
-//        let bd_y = self.sceneView.frame.origin.y + self.sceneView.frame.height/2
-//        //        let bd_x = self.sceneView.frame.origin.x
-//        let bd_x:CGFloat = 30
-//        board = MusicBoard(x: bd_y, y: bd_x, width: bd_w, height: bd_h, keys: 10)
-      
-        let scene1 = PresentationScreen(size: CGSize(width: 500, height: 500))
-      
-        scene1.scaleMode = .aspectFill
-        self.sceneView.presentScene(scene1)
-        self.sceneView.ignoresSiblingOrder = true
-      
-        self.sceneView.showsFPS = true
-        self.sceneView.showsNodeCount = true
-        sceneView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        if debug == 0 {
+            let scene = GameScene(size: CGSize(width: 500, height: 500))
+            scene.scaleMode = .aspectFill
+            self.sceneView.presentScene(scene)
+            self.sceneView.ignoresSiblingOrder = true
+            
+            self.sceneView.showsFPS = true
+            self.sceneView.showsNodeCount = true
+            sceneView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        }
+        else if debug == 1 {
+            let scene1 = PresentationScreen(size: CGSize(width: 500, height: 500))
+          
+            scene1.scaleMode = .aspectFill
+            self.sceneView.presentScene(scene1)
+            self.sceneView.ignoresSiblingOrder = true
+          
+            self.sceneView.showsFPS = true
+            self.sceneView.showsNodeCount = true
+            sceneView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        }
       
         self.view = sceneView
     }

@@ -105,7 +105,7 @@ public class GameScene: SKScene {
     
     
     public func insertPulse() {
-        let w = (size.width + size.height) * 0.05
+        let w = (self.frame.width + self.frame.height) * 0.05
         
         spinnyNode = SKShapeNode(rectOf: CGSize(width: w, height: w), cornerRadius: w * 0.5)
         spinnyNode.lineWidth = 2.5

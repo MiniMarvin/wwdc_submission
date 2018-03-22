@@ -36,7 +36,7 @@ class MusicBoard: SKSpriteNode {
         
         // Adding borders
         let tile = SKShapeNode(rect: CGRect(x: CGFloat(-width/2.0), y: CGFloat(-height/2.0), width: CGFloat(width), height: CGFloat(height)), cornerRadius: 0)
-        tile.strokeColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
+        tile.strokeColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
         tile.lineWidth = 5
         addChild(tile)
     }
@@ -77,7 +77,7 @@ class MusicBoard: SKSpriteNode {
         button.zPosition = self.zPosition + 1
 //            button.size = CGSize(width: 50, height: 50)
 //            button.size = CGSize(width: step, height: self.frame.height - 5)
-      
+        
         button.name = "Button"
         self.addChild(button)
         self.btnSet.append(button)
@@ -91,7 +91,7 @@ class MusicBoard: SKSpriteNode {
           let bbt_h:Float = 3*bt_h/5
           let bbt_x:CGFloat = button.frame.origin.x
           let bbt_y:CGFloat = button.frame.maxY - CGFloat(bbt_h)/2
-          let bbuttonTexture: SKTexture! = SKTexture(imageNamed: "white")
+          let bbuttonTexture: SKTexture! = SKTexture(imageNamed: "black")
           let bbuttonTextureSelected: SKTexture! = SKTexture(imageNamed: "Solid_gray")
           let bbutton = FTButtonNode(normalTexture: bbuttonTexture, selectedTexture: bbuttonTextureSelected, disabledTexture: buttonTexture, width: bbt_w, height: bbt_h)
           //        button.setButtonAction(target: self, triggerEvent: .TouchUpInside, action: #selector(buttonTap))

@@ -80,7 +80,7 @@ class FTButtonNode: SKSpriteNode {
         
         // Adding borders
         let tile = SKShapeNode(rect: CGRect(x: CGFloat(-width/2.0), y: CGFloat(-height/2.0), width: CGFloat(width), height: CGFloat(height)), cornerRadius: 0)
-        tile.strokeColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
+        tile.strokeColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         tile.lineWidth = 2.5
         addChild(tile)
     }
@@ -110,7 +110,7 @@ class FTButtonNode: SKSpriteNode {
         
         // Adding borders
         let tile = SKShapeNode(rect: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height), cornerRadius: 0)
-        tile.strokeColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
+        tile.strokeColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         addChild(tile)
       
         // Add function target

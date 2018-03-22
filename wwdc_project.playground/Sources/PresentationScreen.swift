@@ -4,7 +4,6 @@ import SpriteKit
 
 public class PresentationScreen: SKScene {
   
-  
   private var label : SKLabelNode!
   public var spinnyNode : SKShapeNode!
   private var shouldPlay:Bool = false
@@ -17,23 +16,31 @@ public class PresentationScreen: SKScene {
   
   
   public override func sceneDidLoad() {
-    //    insertFromChild()
-    //    addLogo()
+    // Add the label node
     let node = SKLabelNode(fontNamed:"Chalkduster")
-    node.text = "You win"
-    //    node.isHidden = true
+    node.text = "Songo"
     node.fontSize = 60
     node.fontColor = SKColor.green
     node.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+    node.name = "label_node"
+    node.alpha = 0
+    
     self.addChild(node)
     
-//    let appear = SKAction.sequence([
-////      .hide(),
-//      .wait(forDuration: 1),
-//      .fadeIn(withDuration: 1),
-//      .removeFromParent()])
-
-//    node.run(appear)
+    // Add the spinning node
+//    let w = (self.frame.width + self.frame.height) * 0.2
+    let w = CGFloat(1)
+    let n = SKShapeNode(rectOf: CGSize(width: w, height: w), cornerRadius: w * 0.5)
+    n.lineWidth = 2.5
+    n.alpha = 0
+    n.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+    n.strokeColor = SKColor(red: CGFloat(Utils.random(CGFloat(0.2), CGFloat(1))), green: CGFloat(Utils.random(CGFloat(0.2), CGFloat(1))), blue: CGFloat(Utils.random(CGFloat(0.2), CGFloat(1))), alpha: 1)
+    n.name = "spinny_node"
+    let act = SKAction.sequence([.fadeOut(withDuration: 0.01)])
+    n.run(act)
+    
+    self.addChild(n)
+    
     
     print("Scene loaded")
   }
@@ -42,8 +49,38 @@ public class PresentationScreen: SKScene {
   
   // MARK: Objects
   override public func didMove(to view: SKView) {
-    //    insertPulse()
-    //    insertLogo()
+    let children = self.children
+    for c in children {
+        if c.name == "label_node" {
+            let appear = SKAction.sequence([
+//                .fadeOut(withDuration: 0.001),
+                .wait(forDuration: 2),
+                .fadeIn(withDuration: 4),])
+            c.run(appear)
+        }
+        if c.name == "spinny_node" {
+            let scale_factor:CGFloat = 2 * ((self.frame.width + self.frame.height) * 0.2)
+            let fadeAndRemove = SKAction.sequence([
+                .wait(forDuration: 1),
+                .fadeIn(withDuration: 0.01),
+                .fadeOut(withDuration: 4),
+//                .removeFromParent()
+                ])
+            
+            let grow = SKAction.sequence([
+                .wait(forDuration: 1),
+//                .scale(by: CGFloat(2), duration: 2),
+                .scale(by: CGFloat(scale_factor), duration: 2)
+                ])
+            
+            c.run(grow)
+            c.run(fadeAndRemove)
+        }
+    }
+    
+    
+//
+//    a[0].run(appear)
   }
   
   
@@ -87,7 +124,7 @@ public class PresentationScreen: SKScene {
     label.isHidden = true
     label.fontSize = 60
     label.fontColor = SKColor.green
-    label.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+    label.position = CGPoint(x: 250, y: 250)
     
     let appear = SKAction.sequence([
       .wait(forDuration: 1),
